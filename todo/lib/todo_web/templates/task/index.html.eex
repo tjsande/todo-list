@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <ul class="list-group">
+        <%= for task <- @tasks do %>
+            <li class="list-group-item">
+                <%= task.description %>
+                <div class="right">
+                    <%= link "Edit", to: Routes.task_path(@conn, :edit, task)%>
+                    <%= link "Delete", to: Routes.task_path(@conn, :delete, task), method: :delete %>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
+<div class="fixed-action-btn">
+    <%= link to: Routes.task_path(@conn, :new), class: class="btn btn-primary btn-lg" do %>
+        <i class="plus-circle">add</i>
+    <% end %>
+    </a>
+</div>
